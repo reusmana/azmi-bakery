@@ -1,0 +1,574 @@
+/* ============================================
+   UMKM ROTI - Custom Styles
+   ============================================ */
+
+/* Smooth Scroll */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+::-webkit-scrollbar-thumb {
+  background: #8B6914;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #A67C00;
+}
+
+/* ============================================
+   Animations
+   ============================================ */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 5px rgba(139, 105, 20, 0.4); }
+  50% { box-shadow: 0 0 25px rgba(139, 105, 20, 0.8); }
+}
+
+/* Scroll-triggered animation classes */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.animate-fade-in {
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+.animate-fade-in.visible { opacity: 1; }
+
+.animate-slide-left {
+  opacity: 0;
+  transform: translateX(-60px);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.animate-slide-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.animate-slide-right {
+  opacity: 0;
+  transform: translateX(60px);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.animate-slide-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.animate-scale-in {
+  opacity: 0;
+  transform: scale(0.85);
+  transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.animate-scale-in.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Stagger delay utilities */
+.delay-100 { transition-delay: 0.1s !important; }
+.delay-200 { transition-delay: 0.2s !important; }
+.delay-300 { transition-delay: 0.3s !important; }
+.delay-400 { transition-delay: 0.4s !important; }
+.delay-500 { transition-delay: 0.5s !important; }
+
+/* ============================================
+   Header
+   ============================================ */
+
+.header {
+  transition: all 0.3s ease;
+}
+.header.scrolled {
+  background: rgba(15, 15, 15, 0.95) !important;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+}
+
+.nav-link {
+  position: relative;
+  transition: color 0.3s ease;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #C8A94E, #8B6914);
+  transition: width 0.3s ease;
+  border-radius: 1px;
+}
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* ============================================
+   Hero Section
+   ============================================ */
+
+.hero-section {
+  position: relative;
+  overflow: hidden;
+}
+.hero-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(10, 10, 10, 0.92) 0%,
+    rgba(20, 15, 5, 0.85) 40%,
+    rgba(30, 20, 5, 0.7) 100%
+  );
+  z-index: 1;
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+.hero-image-wrapper {
+  position: relative;
+  z-index: 2;
+  animation: float 5s ease-in-out infinite;
+}
+.hero-image-wrapper img {
+  filter: drop-shadow(0 20px 40px rgba(0,0,0,0.5));
+}
+
+.hero-badge {
+  background: linear-gradient(135deg, rgba(200, 169, 78, 0.15), rgba(139, 105, 20, 0.1));
+  border: 1px solid rgba(200, 169, 78, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+/* ============================================
+   Buttons
+   ============================================ */
+
+.btn-primary {
+  background: linear-gradient(135deg, #C8A94E, #8B6914);
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s ease;
+}
+.btn-primary:hover::before {
+  left: 100%;
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(200, 169, 78, 0.4);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid rgba(200, 169, 78, 0.5);
+  color: #C8A94E;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+.btn-outline:hover {
+  background: rgba(200, 169, 78, 0.1);
+  border-color: #C8A94E;
+  transform: translateY(-2px);
+}
+
+/* ============================================
+   Product Cards
+   ============================================ */
+
+.product-card {
+  background: linear-gradient(145deg, #1a1a1a, #111);
+  border: 1px solid rgba(200, 169, 78, 0.08);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.product-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(200, 169, 78, 0.3);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4),
+              0 0 40px rgba(200, 169, 78, 0.08);
+}
+.product-card .product-image {
+  overflow: hidden;
+  position: relative;
+}
+.product-card .product-image img {
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.product-card:hover .product-image img {
+  transform: scale(1.08);
+}
+.product-card .product-image::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: linear-gradient(to top, #1a1a1a, transparent);
+}
+
+.product-badge {
+  background: linear-gradient(135deg, #C8A94E, #8B6914);
+  color: #0a0a0a;
+  font-weight: 700;
+  font-size: 0.75rem;
+  padding: 4px 12px;
+  border-radius: 20px;
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 2;
+}
+
+/* Category filter tabs */
+.category-tab {
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(200, 169, 78, 0.15);
+  background: transparent;
+  color: #888;
+}
+.category-tab:hover {
+  border-color: rgba(200, 169, 78, 0.4);
+  color: #C8A94E;
+}
+.category-tab.active {
+  background: linear-gradient(135deg, #C8A94E, #8B6914);
+  color: #0a0a0a;
+  border-color: transparent;
+  font-weight: 600;
+}
+
+/* ============================================
+   Features Section
+   ============================================ */
+
+.feature-card {
+  background: linear-gradient(145deg, #1a1a1a, #111);
+  border: 1px solid rgba(200, 169, 78, 0.08);
+  border-radius: 24px;
+  padding: 40px 32px;
+  text-align: center;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #C8A94E, transparent);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+.feature-card:hover::before {
+  opacity: 1;
+}
+.feature-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(200, 169, 78, 0.2);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+.feature-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(200, 169, 78, 0.15), rgba(139, 105, 20, 0.08));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+  transition: all 0.4s ease;
+}
+.feature-card:hover .feature-icon {
+  background: linear-gradient(135deg, rgba(200, 169, 78, 0.25), rgba(139, 105, 20, 0.15));
+  transform: scale(1.05);
+}
+
+/* ============================================
+   Testimonials / Swiper
+   ============================================ */
+
+.testimonial-card {
+  background: linear-gradient(145deg, #1a1a1a, #111);
+  border: 1px solid rgba(200, 169, 78, 0.08);
+  border-radius: 24px;
+  padding: 36px;
+  transition: all 0.4s ease;
+}
+.testimonial-card:hover {
+  border-color: rgba(200, 169, 78, 0.2);
+}
+
+.testimonial-stars {
+  color: #C8A94E;
+}
+
+.testimonial-avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 2px solid rgba(200, 169, 78, 0.3);
+  object-fit: cover;
+}
+
+/* Swiper overrides */
+.swiper-pagination-bullet {
+  background: rgba(200, 169, 78, 0.3) !important;
+  opacity: 1 !important;
+  width: 10px !important;
+  height: 10px !important;
+  transition: all 0.3s ease !important;
+}
+.swiper-pagination-bullet-active {
+  background: #C8A94E !important;
+  width: 28px !important;
+  border-radius: 5px !important;
+}
+
+/* ============================================
+   Footer
+   ============================================ */
+
+.footer-gradient {
+  background: linear-gradient(to top, #0a0a0a, #111);
+}
+
+.footer-link {
+  color: #888;
+  transition: color 0.3s ease, padding-left 0.3s ease;
+}
+.footer-link:hover {
+  color: #C8A94E;
+  padding-left: 4px;
+}
+
+/* ============================================
+   WhatsApp Floating Button
+   ============================================ */
+
+.whatsapp-float {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 60px;
+  height: 60px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+  z-index: 1000;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.whatsapp-float:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 30px rgba(37, 211, 102, 0.6);
+}
+.whatsapp-float svg {
+  width: 32px;
+  height: 32px;
+  fill: #fff;
+}
+
+/* ============================================
+   Section Dividers
+   ============================================ */
+
+.section-subtitle {
+  background: linear-gradient(90deg, #C8A94E, #DFC06E);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  color: #fff;
+}
+
+.gold-line {
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #C8A94E, #8B6914);
+  border-radius: 2px;
+}
+
+/* ============================================
+   Newsletter
+   ============================================ */
+
+.newsletter-input {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(200, 169, 78, 0.15);
+  border-radius: 12px;
+  padding: 14px 20px;
+  color: #fff;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  outline: none;
+}
+.newsletter-input::placeholder {
+  color: #666;
+}
+.newsletter-input:focus {
+  border-color: rgba(200, 169, 78, 0.5);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 20px rgba(200, 169, 78, 0.08);
+}
+
+/* ============================================
+   Glass effect
+   ============================================ */
+
+.glass {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* ============================================
+   Mobile Menu
+   ============================================ */
+
+.mobile-menu {
+  transform: translateX(100%);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.mobile-menu.open {
+  transform: translateX(0);
+}
+
+/* ============================================
+   Responsive
+   ============================================ */
+
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: auto;
+    padding-top: 100px;
+    padding-bottom: 60px;
+  }
+  .section-title {
+    font-size: 1.8rem !important;
+  }
+  .feature-card {
+    padding: 28px 20px;
+  }
+  .testimonial-card {
+    padding: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .category-tab {
+    padding: 6px 16px;
+    font-size: 0.8rem;
+  }
+}
