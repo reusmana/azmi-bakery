@@ -1,354 +1,573 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Azmi Bakery</title>
+    <meta
+      name="description"
+      content="Azmi Bakery menyajikan roti premium dengan bahan alami berkualitas tinggi. Pesan sekarang untuk pengalaman rasa terbaik."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+              serif: ["Playfair Display", "serif"],
+            },
+            colors: {
+              gold: {
+                50: "#FFF9E6",
+                100: "#FFF0BF",
+                200: "#FFE699",
+                300: "#DFC06E",
+                400: "#C8A94E",
+                500: "#B8922E",
+                600: "#8B6914",
+                700: "#6B4F0E",
+                800: "#4A3709",
+                900: "#2A1F05",
+              },
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Azmi Bakery</title>
-  <meta name="description"
-    content="Azmi Bakery menyajikan roti premium dengan bahan alami berkualitas tinggi. Pesan sekarang untuk pengalaman rasa terbaik.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: { sans: ['Inter', 'sans-serif'], serif: ['Playfair Display', 'serif'] },
-          colors: { gold: { 50: '#FFF9E6', 100: '#FFF0BF', 200: '#FFE699', 300: '#DFC06E', 400: '#C8A94E', 500: '#B8922E', 600: '#8B6914', 700: '#6B4F0E', 800: '#4A3709', 900: '#2A1F05' } }
-        }
-      }
-    }
-  </script>
-  <link rel="stylesheet" href="style.css">
-</head>
+  <body class="bg-[#0a0a0a] text-white font-sans antialiased">
+    <!-- HEADER -->
+    <header
+      id="header"
+      class="header fixed top-0 left-0 w-full z-50 bg-transparent transition-all duration-300"
+    >
+      <div
+        class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between"
+      >
+        <a href="#beranda" class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-gold-400 text-3xl"
+            >bakery_dining</span
+          >
+          <span class="text-xl font-bold tracking-tight"
+            >Azmi<span class="text-gold-400">Bakery</span></span
+          >
+        </a>
+        <nav class="hidden md:flex items-center gap-8">
+          <a
+            href="#beranda"
+            class="nav-link text-sm text-gray-300 hover:text-gold-400"
+            >Beranda</a
+          >
+          <a
+            href="#menu"
+            class="nav-link text-sm text-gray-300 hover:text-gold-400"
+            >Menu</a
+          >
+          <a
+            href="#tentang"
+            class="nav-link text-sm text-gray-300 hover:text-gold-400"
+            >Tentang Kami</a
+          >
+          <a
+            href="#testimoni"
+            class="nav-link text-sm text-gray-300 hover:text-gold-400"
+            >Testimoni</a
+          >
+        </nav>
+        <a
+          href="#menu"
+          class="hidden md:inline-flex btn-primary px-6 py-2.5 rounded-full text-sm"
+          >Pesan Sekarang</a
+        >
+        <button id="mobileMenuBtn" class="md:hidden text-white">
+          <span class="material-symbols-outlined text-3xl">menu</span>
+        </button>
+      </div>
+    </header>
 
-<body class="bg-[#0a0a0a] text-white font-sans antialiased">
-
-  <!-- HEADER -->
-  <header id="header" class="header fixed top-0 left-0 w-full z-50 bg-transparent transition-all duration-300">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-      <a href="#beranda" class="flex items-center gap-2">
-        <span class="material-symbols-outlined text-gold-400 text-3xl">bakery_dining</span>
-        <span class="text-xl font-bold tracking-tight">Azmi<span class="text-gold-400">Bakery</span></span>
-      </a>
-      <nav class="hidden md:flex items-center gap-8">
-        <a href="#beranda" class="nav-link text-sm text-gray-300 hover:text-gold-400">Beranda</a>
-        <a href="#menu" class="nav-link text-sm text-gray-300 hover:text-gold-400">Menu</a>
-        <a href="#tentang" class="nav-link text-sm text-gray-300 hover:text-gold-400">Tentang Kami</a>
-        <a href="#testimoni" class="nav-link text-sm text-gray-300 hover:text-gold-400">Testimoni</a>
-      </nav>
-      <a href="#menu" class="hidden md:inline-flex btn-primary px-6 py-2.5 rounded-full text-sm">Pesan Sekarang</a>
-      <button id="mobileMenuBtn" class="md:hidden text-white"><span
-          class="material-symbols-outlined text-3xl">menu</span></button>
+    <!-- MOBILE MENU -->
+    <div
+      id="mobileMenu"
+      class="mobile-menu fixed inset-0 bg-[#0a0a0a]/95 backdrop-blur-xl z-[60] flex flex-col items-center justify-center gap-8"
+    >
+      <button id="mobileMenuClose" class="absolute top-6 right-6">
+        <span class="material-symbols-outlined text-3xl text-white">close</span>
+      </button>
+      <a
+        href="#beranda"
+        class="mobile-nav text-2xl font-semibold text-gray-200 hover:text-gold-400 transition"
+        >Beranda</a
+      >
+      <a
+        href="#menu"
+        class="mobile-nav text-2xl font-semibold text-gray-200 hover:text-gold-400 transition"
+        >Menu</a
+      >
+      <a
+        href="#tentang"
+        class="mobile-nav text-2xl font-semibold text-gray-200 hover:text-gold-400 transition"
+        >Tentang Kami</a
+      >
+      <a
+        href="#testimoni"
+        class="mobile-nav text-2xl font-semibold text-gray-200 hover:text-gold-400 transition"
+        >Testimoni</a
+      >
+      <a href="#menu" class="btn-primary px-8 py-3 rounded-full text-lg mt-4"
+        >Pesan Sekarang</a
+      >
     </div>
-  </header>
 
-  <!-- MOBILE MENU -->
-  <div id="mobileMenu"
-    class="mobile-menu fixed inset-0 bg-[#0a0a0a]/95 backdrop-blur-xl z-[60] flex flex-col items-center justify-center gap-8">
-    <button id="mobileMenuClose" class="absolute top-6 right-6"><span
-        class="material-symbols-outlined text-3xl text-white">close</span></button>
-    <a href="#beranda"
-      class="mobile-nav text-2xl font-semibold text-gray-200 hover:text-gold-400 transition">Beranda</a>
-    <a href="#menu" class="mobile-nav text-2xl font-semibold text-gray-200 hover:text-gold-400 transition">Menu</a>
-    <a href="#tentang" class="mobile-nav text-2xl font-semibold text-gray-200 hover:text-gold-400 transition">Tentang
-      Kami</a>
-    <a href="#testimoni"
-      class="mobile-nav text-2xl font-semibold text-gray-200 hover:text-gold-400 transition">Testimoni</a>
-    <a href="#menu" class="btn-primary px-8 py-3 rounded-full text-lg mt-4">Pesan Sekarang</a>
-  </div>
-
-  <!-- HERO -->
-  <section id="beranda" class="hero-section min-h-screen flex items-center relative"
-    style="background:url('assets/images/hero-bread.png') center/cover no-repeat">
-    <div class="hero-content max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center pt-24 pb-16">
-      <div>
-        <div class="hero-badge inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm text-gold-400 mb-6"
-          style="animation:fadeInUp .8s ease forwards">
-          <span class="material-symbols-outlined text-base">verified</span> Roti Artisan Premium #1
-        </div>
-        <h1 class="section-title text-4xl md:text-6xl font-bold leading-tight mb-6"
-          style="animation:fadeInUp .8s .1s ease both">Rasa Autentik,<br><span class="text-gold-400">Kualitas
-            Premium</span></h1>
-        <p class="text-gray-400 text-lg leading-relaxed mb-8 max-w-lg" style="animation:fadeInUp .8s .2s ease both">
-          Nikmati kelezatan roti artisan yang dibuat dengan bahan pilihan terbaik dan resep warisan turun-temurun.
-          Setiap gigitan adalah pengalaman istimewa.</p>
-        <div class="flex flex-wrap gap-4" style="animation:fadeInUp .8s .3s ease both">
-          <a href="https://wa.me/6281234567890?text=Halo%20saya%20ingin%20memesan%20roti" target="_blank"
-            class="btn-primary px-8 py-3.5 rounded-full text-sm inline-flex items-center gap-2">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-              <path
-                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
-              <path
-                d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.61.61l4.458-1.495A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.319 0-4.476-.678-6.29-1.844l-.438-.282-3.22 1.08 1.08-3.22-.282-.438A9.956 9.956 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z" />
-            </svg>
-            WhatsApp Kami
-          </a>
-          <a href="#menu" class="btn-outline px-8 py-3.5 rounded-full text-sm inline-flex items-center gap-2">
-            <span class="material-symbols-outlined text-base">restaurant_menu</span> Lihat Menu
-          </a>
-        </div>
-        <div class="flex items-center gap-8 mt-10" style="animation:fadeInUp .8s .4s ease both">
-          <div><span class="text-2xl font-bold text-gold-400">500+</span>
-            <p class="text-xs text-gray-500 mt-1">Pelanggan Puas</p>
+    <!-- HERO -->
+    <section
+      id="beranda"
+      class="hero-section min-h-screen flex items-center relative"
+      style="
+        background: url(&quot;assets/images/breads/4.png&quot;) center/cover
+          no-repeat;
+      "
+    >
+      <div
+        class="hero-content max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center pt-24 pb-16"
+      >
+        <div>
+          <div
+            class="hero-badge inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm text-gold-400 mb-6"
+            style="animation: fadeInUp 0.8s ease forwards"
+          >
+            <span class="material-symbols-outlined text-base">verified</span>
+            Azmi Bakery Premium #1
           </div>
-          <div class="w-px h-10 bg-gray-700"></div>
-          <div><span class="text-2xl font-bold text-gold-400">15+</span>
-            <p class="text-xs text-gray-500 mt-1">Varian Roti</p>
+          <h1
+            class="section-title text-4xl md:text-6xl font-bold leading-tight mb-6"
+            style="animation: fadeInUp 0.8s 0.1s ease both"
+          >
+            Rasa Autentik,<br /><span class="text-gold-400"
+              >Kualitas Premium</span
+            >
+          </h1>
+          <p
+            class="text-gray-400 text-lg leading-relaxed mb-8 max-w-lg"
+            style="animation: fadeInUp 0.8s 0.2s ease both"
+          >
+            Nikmati kelezatan roti yang dibuat dengan bahan pilihan terbaik dan
+            resep warisan turun-temurun. Setiap gigitan adalah pengalaman
+            istimewa.
+          </p>
+          <div
+            class="flex flex-wrap gap-4"
+            style="animation: fadeInUp 0.8s 0.3s ease both"
+          >
+            <a
+              href="https://wa.me/6285766554636?text=Halo%20saya%20ingin%20memesan%20roti"
+              target="_blank"
+              class="btn-primary px-8 py-3.5 rounded-full text-sm inline-flex items-center gap-2"
+            >
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"
+                />
+                <path
+                  d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.61.61l4.458-1.495A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.319 0-4.476-.678-6.29-1.844l-.438-.282-3.22 1.08 1.08-3.22-.282-.438A9.956 9.956 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"
+                />
+              </svg>
+              WhatsApp Kami
+            </a>
+            <a
+              href="#menu"
+              class="btn-outline px-8 py-3.5 rounded-full text-sm inline-flex items-center gap-2"
+            >
+              <span class="material-symbols-outlined text-base"
+                >restaurant_menu</span
+              >
+              Lihat Menu
+            </a>
           </div>
-          <div class="w-px h-10 bg-gray-700"></div>
-          <div><span class="text-2xl font-bold text-gold-400">4.9</span>
-            <p class="text-xs text-gray-500 mt-1">Rating ⭐</p>
+          <div
+            class="flex items-center gap-8 mt-10"
+            style="animation: fadeInUp 0.8s 0.4s ease both"
+          >
+            <div>
+              <span class="text-2xl font-bold text-gold-400">500+</span>
+              <p class="text-xs text-gray-500 mt-1">Pelanggan Puas</p>
+            </div>
+            <div class="w-px h-10 bg-gray-700"></div>
+            <div>
+              <span class="text-2xl font-bold text-gold-400">15+</span>
+              <p class="text-xs text-gray-500 mt-1">Varian Roti</p>
+            </div>
+            <div class="w-px h-10 bg-gray-700"></div>
+            <div>
+              <span class="text-2xl font-bold text-gold-400">4.9</span>
+              <p class="text-xs text-gray-500 mt-1">Rating ⭐</p>
+            </div>
+          </div>
+        </div>
+        <div class="hero-image-wrapper hidden md:block">
+          <img
+            src="assets/images/breads/4.png"
+            alt="Roti Artisan Premium"
+            class="w-full max-w-lg mx-auto rounded-3xl"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- MENU / PRODUCT CATALOG -->
+    <section id="menu" class="py-24 relative">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16 animate-on-scroll">
+          <p class="section-subtitle mb-3">Menu Kami</p>
+          <h2 class="section-title text-3xl md:text-5xl font-bold mb-4">
+            Pilihan Roti <span class="text-gold-400">Terbaik</span>
+          </h2>
+          <div class="gold-line mx-auto mt-4"></div>
+        </div>
+        <div
+          class="flex flex-wrap justify-center gap-3 mb-12 animate-on-scroll delay-100"
+        >
+          <button class="category-tab active" data-category="all">Semua</button>
+          <!-- <button class="category-tab" data-category="roti">Roti</button>
+          <button class="category-tab" data-category="pastry">Pastry</button>
+          <button class="category-tab" data-category="spesial">Spesial</button> -->
+        </div>
+        <div id="productGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Cards inserted by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- TENTANG / WHY CHOOSE US -->
+    <section id="tentang" class="py-24 relative overflow-hidden">
+      <div
+        class="absolute inset-0 bg-gradient-to-b from-transparent via-gold-900/5 to-transparent pointer-events-none"
+      ></div>
+      <div class="max-w-7xl mx-auto px-6 relative">
+        <div class="text-center mb-16 animate-on-scroll">
+          <p class="section-subtitle mb-3">Mengapa Kami</p>
+          <h2 class="section-title text-3xl md:text-5xl font-bold mb-4">
+            Mengapa Memilih <span class="text-gold-400">Kami?</span>
+          </h2>
+          <div class="gold-line mx-auto mt-4"></div>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="feature-card animate-on-scroll delay-100">
+            <div class="feature-icon">
+              <span class="material-symbols-outlined text-3xl text-gold-400"
+                >eco</span
+              >
+            </div>
+            <h3 class="text-xl font-bold mb-3">Bahan Alami</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">
+              Kami hanya menggunakan bahan-bahan alami berkualitas tinggi tanpa
+              pengawet dan pewarna buatan.
+            </p>
+          </div>
+          <div class="feature-card animate-on-scroll delay-200">
+            <div class="feature-icon">
+              <span class="material-symbols-outlined text-3xl text-gold-400"
+                >workspace_premium</span
+              >
+            </div>
+            <h3 class="text-xl font-bold mb-3">Kualitas Premium</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">
+              Setiap roti melewati proses quality control ketat untuk memastikan
+              rasa dan tekstur sempurna.
+            </p>
+          </div>
+          <div class="feature-card animate-on-scroll delay-300">
+            <div class="feature-icon">
+              <span class="material-symbols-outlined text-3xl text-gold-400"
+                >menu_book</span
+              >
+            </div>
+            <h3 class="text-xl font-bold mb-3">Resep Warisan</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">
+              Resep turun-temurun yang dijaga keasliannya, memberikan cita rasa
+              autentik di setiap produk.
+            </p>
           </div>
         </div>
       </div>
-      <div class="hero-image-wrapper hidden md:block">
-        <img src="assets/images/hero-bread.png" alt="Roti Artisan Premium" class="w-full max-w-lg mx-auto rounded-3xl">
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- MENU / PRODUCT CATALOG -->
-  <section id="menu" class="py-24 relative">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="text-center mb-16 animate-on-scroll">
-        <p class="section-subtitle mb-3">Menu Kami</p>
-        <h2 class="section-title text-3xl md:text-5xl font-bold mb-4">Pilihan Roti <span
-            class="text-gold-400">Terbaik</span></h2>
-        <div class="gold-line mx-auto mt-4"></div>
-      </div>
-      <div class="flex flex-wrap justify-center gap-3 mb-12 animate-on-scroll delay-100">
-        <button class="category-tab active" data-category="all">Semua</button>
-        <button class="category-tab" data-category="roti">Roti</button>
-        <button class="category-tab" data-category="pastry">Pastry</button>
-        <button class="category-tab" data-category="spesial">Spesial</button>
-      </div>
-      <div id="productGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Cards inserted by JS -->
-      </div>
-    </div>
-  </section>
-
-  <!-- TENTANG / WHY CHOOSE US -->
-  <section id="tentang" class="py-24 relative overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-gold-900/5 to-transparent pointer-events-none">
-    </div>
-    <div class="max-w-7xl mx-auto px-6 relative">
-      <div class="text-center mb-16 animate-on-scroll">
-        <p class="section-subtitle mb-3">Mengapa Kami</p>
-        <h2 class="section-title text-3xl md:text-5xl font-bold mb-4">Mengapa Memilih <span
-            class="text-gold-400">Kami?</span></h2>
-        <div class="gold-line mx-auto mt-4"></div>
-      </div>
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="feature-card animate-on-scroll delay-100">
-          <div class="feature-icon"><span class="material-symbols-outlined text-3xl text-gold-400">eco</span></div>
-          <h3 class="text-xl font-bold mb-3">Bahan Alami</h3>
-          <p class="text-gray-400 text-sm leading-relaxed">Kami hanya menggunakan bahan-bahan alami berkualitas tinggi
-            tanpa pengawet dan pewarna buatan.</p>
+    <!-- TESTIMONI -->
+    <section id="testimoni" class="py-24">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16 animate-on-scroll">
+          <p class="section-subtitle mb-3">Testimoni</p>
+          <h2 class="section-title text-3xl md:text-5xl font-bold mb-4">
+            Apa Kata <span class="text-gold-400">Pelanggan?</span>
+          </h2>
+          <div class="gold-line mx-auto mt-4"></div>
         </div>
-        <div class="feature-card animate-on-scroll delay-200">
-          <div class="feature-icon"><span
-              class="material-symbols-outlined text-3xl text-gold-400">workspace_premium</span></div>
-          <h3 class="text-xl font-bold mb-3">Kualitas Premium</h3>
-          <p class="text-gray-400 text-sm leading-relaxed">Setiap roti melewati proses quality control ketat untuk
-            memastikan rasa dan tekstur sempurna.</p>
-        </div>
-        <div class="feature-card animate-on-scroll delay-300">
-          <div class="feature-icon"><span class="material-symbols-outlined text-3xl text-gold-400">menu_book</span>
-          </div>
-          <h3 class="text-xl font-bold mb-3">Resep Warisan</h3>
-          <p class="text-gray-400 text-sm leading-relaxed">Resep turun-temurun yang dijaga keasliannya, memberikan cita
-            rasa autentik di setiap produk.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- TESTIMONI -->
-  <section id="testimoni" class="py-24">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="text-center mb-16 animate-on-scroll">
-        <p class="section-subtitle mb-3">Testimoni</p>
-        <h2 class="section-title text-3xl md:text-5xl font-bold mb-4">Apa Kata <span
-            class="text-gold-400">Pelanggan?</span></h2>
-        <div class="gold-line mx-auto mt-4"></div>
-      </div>
-      <div class="swiper testimonialSwiper animate-on-scroll delay-100">
-        <div class="swiper-wrapper pb-12">
-          <div class="swiper-slide">
-            <div class="testimonial-card">
-              <div class="testimonial-stars flex gap-1 mb-4"><span
-                  class="material-symbols-outlined text-lg">star</span><span
-                  class="material-symbols-outlined text-lg">star</span><span
-                  class="material-symbols-outlined text-lg">star</span><span
-                  class="material-symbols-outlined text-lg">star</span><span
-                  class="material-symbols-outlined text-lg">star</span></div>
-              <p class="text-gray-300 text-sm leading-relaxed mb-6">"Roti sourdough terenak yang pernah saya coba!
-                Teksturnya sempurna dan rasanya autentik. Pasti akan order lagi."</p>
-              <div class="flex items-center gap-3">
-                <div
-                  class="w-11 h-11 rounded-full bg-gold-600 flex items-center justify-center text-sm font-bold text-black">
-                  SA</div>
-                <div>
-                  <p class="font-semibold text-sm">Sarah Amalia</p>
-                  <p class="text-xs text-gray-500">Pelanggan Setia</p>
+        <div class="swiper testimonialSwiper animate-on-scroll delay-100">
+          <div class="swiper-wrapper pb-12">
+            <div class="swiper-slide">
+              <div class="testimonial-card">
+                <div class="testimonial-stars flex gap-1 mb-4">
+                  <span class="material-symbols-outlined text-lg">star</span
+                  ><span class="material-symbols-outlined text-lg">star</span
+                  ><span class="material-symbols-outlined text-lg">star</span
+                  ><span class="material-symbols-outlined text-lg">star</span
+                  ><span class="material-symbols-outlined text-lg">star</span>
+                </div>
+                <p class="text-gray-300 text-sm leading-relaxed mb-6">
+                  "Roti dari AzmiBakery terenak yang pernah saya coba!
+                  Teksturnya sempurna dan rasanya autentik. Pasti akan order
+                  lagi. yang penting murah"
+                </p>
+                <div class="flex items-center gap-3">
+                  <div
+                    class="w-11 h-11 rounded-full bg-gold-600 flex items-center justify-center text-sm font-bold text-black"
+                  >
+                    SA
+                  </div>
+                  <div>
+                    <p class="font-semibold text-sm">Sarah Amalia</p>
+                    <p class="text-xs text-gray-500">Pelanggan Setia</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="testimonial-card">
+                <div class="testimonial-stars flex gap-1 mb-4">
+                  <span class="material-symbols-outlined text-lg">star</span
+                  ><span class="material-symbols-outlined text-lg">star</span
+                  ><span class="material-symbols-outlined text-lg">star</span
+                  ><span class="material-symbols-outlined text-lg">star</span
+                  ><span class="material-symbols-outlined text-lg">star</span>
+                </div>
+                <p class="text-gray-300 text-sm leading-relaxed mb-6">
+                  "Keju-nya luar biasa lumer di luar dan lembut di dalam.
+                  Pengiriman juga cepat dan packaging rapi!"
+                </p>
+                <div class="flex items-center gap-3">
+                  <div
+                    class="w-11 h-11 rounded-full bg-gold-600 flex items-center justify-center text-sm font-bold text-black"
+                  >
+                    BR
+                  </div>
+                  <div>
+                    <p class="font-semibold text-sm">Budi Raharjo</p>
+                    <p class="text-xs text-gray-500">Food Enthusiast</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="testimonial-card">
+                <div class="testimonial-stars flex gap-1 mb-4">
+                  <span class="material-symbols-outlined text-lg">star</span
+                  ><span class="material-symbols-outlined text-lg">star</span
+                  ><span class="material-symbols-outlined text-lg">star</span
+                  ><span class="material-symbols-outlined text-lg">star</span
+                  ><span class="material-symbols-outlined text-lg">star</span>
+                </div>
+                <p class="text-gray-300 text-sm leading-relaxed mb-6">
+                  "Saya selalu pesan untuk acara keluarga. Semua orang suka!
+                  AzmiBakery juara banget."
+                </p>
+                <div class="flex items-center gap-3">
+                  <div
+                    class="w-11 h-11 rounded-full bg-gold-600 flex items-center justify-center text-sm font-bold text-black"
+                  >
+                    DW
+                  </div>
+                  <div>
+                    <p class="font-semibold text-sm">Dewi Wulandari</p>
+                    <p class="text-xs text-gray-500">Ibu Rumah Tangga</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="testimonial-card">
+                <div class="testimonial-stars flex gap-1 mb-4">
+                  <span class="material-symbols-outlined text-lg">star</span
+                  ><span class="material-symbols-outlined text-lg">star</span
+                  ><span class="material-symbols-outlined text-lg">star</span
+                  ><span class="material-symbols-outlined text-lg">star</span
+                  ><span class="material-symbols-outlined text-lg">star</span>
+                </div>
+                <p class="text-gray-300 text-sm leading-relaxed mb-6">
+                  "Baguette mereka mengingatkan saya pada bakery di Perancis.
+                  Really authentic taste and texture!"
+                </p>
+                <div class="flex items-center gap-3">
+                  <div
+                    class="w-11 h-11 rounded-full bg-gold-600 flex items-center justify-center text-sm font-bold text-black"
+                  >
+                    AP
+                  </div>
+                  <div>
+                    <p class="font-semibold text-sm">Andi Pratama</p>
+                    <p class="text-xs text-gray-500">Chef Profesional</p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="swiper-slide">
-            <div class="testimonial-card">
-              <div class="testimonial-stars flex gap-1 mb-4"><span
-                  class="material-symbols-outlined text-lg">star</span><span
-                  class="material-symbols-outlined text-lg">star</span><span
-                  class="material-symbols-outlined text-lg">star</span><span
-                  class="material-symbols-outlined text-lg">star</span><span
-                  class="material-symbols-outlined text-lg">star</span></div>
-              <p class="text-gray-300 text-sm leading-relaxed mb-6">"Croissant-nya luar biasa renyah di luar dan lembut
-                di dalam. Pengiriman juga cepat dan packaging rapi!"</p>
-              <div class="flex items-center gap-3">
-                <div
-                  class="w-11 h-11 rounded-full bg-gold-600 flex items-center justify-center text-sm font-bold text-black">
-                  BR</div>
-                <div>
-                  <p class="font-semibold text-sm">Budi Raharjo</p>
-                  <p class="text-xs text-gray-500">Food Enthusiast</p>
-                </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer-gradient pt-20 pb-8 border-t border-gray-800/50">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="grid md:grid-cols-4 gap-12 mb-16">
+          <div>
+            <a href="#beranda" class="flex items-center gap-2 mb-4"
+              ><span class="material-symbols-outlined text-gold-400 text-3xl"
+                >bakery_dining</span
+              ><span class="text-xl font-bold"
+                >Azmi<span class="text-gold-400">Bakery</span></span
+              ></a
+            >
+            <p class="text-gray-400 text-sm leading-relaxed mb-6">
+              Menyajikan roti dengan harga terjangkau, cinta dan bahan terbaik
+              sejak 2023.
+            </p>
+            <div class="flex gap-3">
+              <!-- <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-gold-400/20 transition"
+                ><span class="material-symbols-outlined text-lg text-gray-400"
+                  >share</span
+                ></a
+              > -->
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-gold-400/20 transition"
+                ><span class="material-symbols-outlined text-lg text-gray-400"
+                  >photo_camera</span
+                ></a
+              >
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-gold-400/20 transition"
+                ><span class="material-symbols-outlined text-lg text-gray-400"
+                  >mail</span
+                ></a
+              >
+            </div>
+          </div>
+          <div class="hidden">
+            <h4
+              class="font-semibold mb-4 text-sm uppercase tracking-wider text-gold-400"
+            >
+              Menu
+            </h4>
+            <ul class="space-y-3">
+              <li>
+                <a href="#menu" class="footer-link text-sm">Roti Artisan</a>
+              </li>
+              <li><a href="#menu" class="footer-link text-sm">Pastry</a></li>
+              <li><a href="#menu" class="footer-link text-sm">Spesial</a></li>
+              <li>
+                <a href="#menu" class="footer-link text-sm">Paket Hemat</a>
+              </li>
+            </ul>
+          </div>
+          <div class="hidden">
+            <h4
+              class="font-semibold mb-4 text-sm uppercase tracking-wider text-gold-400"
+            >
+              Jam Operasional
+            </h4>
+            <ul class="space-y-3 text-sm text-gray-400">
+              <li class="flex justify-between">
+                <span>Senin - Jumat</span
+                ><span class="text-white">07:00 - 21:00</span>
+              </li>
+              <li class="flex justify-between">
+                <span>Sabtu</span><span class="text-white">07:00 - 22:00</span>
+              </li>
+              <li class="flex justify-between">
+                <span>Minggu</span><span class="text-white">08:00 - 20:00</span>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4
+              class="font-semibold mb-4 text-sm uppercase tracking-wider text-gold-400"
+            >
+              Hubungi Kami
+            </h4>
+            <ul class="space-y-3">
+              <li class="hidden items-center gap-2 text-sm text-gray-400">
+                <span class="material-symbols-outlined text-base text-gold-400"
+                  >location_on</span
+                >Jl. Roti Artisan No. 12, Jakarta
+              </li>
+              <li class="flex items-center gap-2 text-sm text-gray-400">
+                <span class="material-symbols-outlined text-base text-gold-400"
+                  >call</span
+                >+62 857-6655-4636
+              </li>
+              <li class="hidden items-center gap-2 text-sm text-gray-400">
+                <span class="material-symbols-outlined text-base text-gold-400"
+                  >mail</span
+                >hello@rotinusantara.id
+              </li>
+            </ul>
+            <div class="mt-6 hidden">
+              <div class="flex gap-2">
+                <input
+                  type="email"
+                  placeholder="Email Anda"
+                  class="newsletter-input flex-1 text-sm"
+                /><button class="btn-primary px-4 py-3 rounded-xl text-sm">
+                  <span class="material-symbols-outlined text-lg">send</span>
+                </button>
               </div>
             </div>
           </div>
-          <div class="swiper-slide">
-            <div class="testimonial-card">
-              <div class="testimonial-stars flex gap-1 mb-4"><span
-                  class="material-symbols-outlined text-lg">star</span><span
-                  class="material-symbols-outlined text-lg">star</span><span
-                  class="material-symbols-outlined text-lg">star</span><span
-                  class="material-symbols-outlined text-lg">star</span><span
-                  class="material-symbols-outlined text-lg">star</span></div>
-              <p class="text-gray-300 text-sm leading-relaxed mb-6">"Saya selalu pesan untuk acara keluarga. Semua orang
-                suka! Cinnamon roll-nya juara banget."</p>
-              <div class="flex items-center gap-3">
-                <div
-                  class="w-11 h-11 rounded-full bg-gold-600 flex items-center justify-center text-sm font-bold text-black">
-                  DW</div>
-                <div>
-                  <p class="font-semibold text-sm">Dewi Wulandari</p>
-                  <p class="text-xs text-gray-500">Ibu Rumah Tangga</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="testimonial-card">
-              <div class="testimonial-stars flex gap-1 mb-4"><span
-                  class="material-symbols-outlined text-lg">star</span><span
-                  class="material-symbols-outlined text-lg">star</span><span
-                  class="material-symbols-outlined text-lg">star</span><span
-                  class="material-symbols-outlined text-lg">star</span><span
-                  class="material-symbols-outlined text-lg">star</span></div>
-              <p class="text-gray-300 text-sm leading-relaxed mb-6">"Baguette mereka mengingatkan saya pada bakery di
-                Perancis. Really authentic taste and texture!"</p>
-              <div class="flex items-center gap-3">
-                <div
-                  class="w-11 h-11 rounded-full bg-gold-600 flex items-center justify-center text-sm font-bold text-black">
-                  AP</div>
-                <div>
-                  <p class="font-semibold text-sm">Andi Pratama</p>
-                  <p class="text-xs text-gray-500">Chef Profesional</p>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
-        <div class="swiper-pagination"></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="footer-gradient pt-20 pb-8 border-t border-gray-800/50">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="grid md:grid-cols-4 gap-12 mb-16">
-        <div>
-          <a href="#beranda" class="flex items-center gap-2 mb-4"><span
-              class="material-symbols-outlined text-gold-400 text-3xl">bakery_dining</span><span
-              class="text-xl font-bold">Roti<span class="text-gold-400">Nusantara</span></span></a>
-          <p class="text-gray-400 text-sm leading-relaxed mb-6">Menyajikan roti artisan premium dengan cinta dan bahan
-            terbaik sejak 2020.</p>
-          <div class="flex gap-3">
-            <a href="#"
-              class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-gold-400/20 transition"><span
-                class="material-symbols-outlined text-lg text-gray-400">share</span></a>
-            <a href="#"
-              class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-gold-400/20 transition"><span
-                class="material-symbols-outlined text-lg text-gray-400">photo_camera</span></a>
-            <a href="#"
-              class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-gold-400/20 transition"><span
-                class="material-symbols-outlined text-lg text-gray-400">mail</span></a>
-          </div>
-        </div>
-        <div>
-          <h4 class="font-semibold mb-4 text-sm uppercase tracking-wider text-gold-400">Menu</h4>
-          <ul class="space-y-3">
-            <li><a href="#menu" class="footer-link text-sm">Roti Artisan</a></li>
-            <li><a href="#menu" class="footer-link text-sm">Pastry</a></li>
-            <li><a href="#menu" class="footer-link text-sm">Spesial</a></li>
-            <li><a href="#menu" class="footer-link text-sm">Paket Hemat</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4 class="font-semibold mb-4 text-sm uppercase tracking-wider text-gold-400">Jam Operasional</h4>
-          <ul class="space-y-3 text-sm text-gray-400">
-            <li class="flex justify-between"><span>Senin - Jumat</span><span class="text-white">07:00 - 21:00</span>
-            </li>
-            <li class="flex justify-between"><span>Sabtu</span><span class="text-white">07:00 - 22:00</span></li>
-            <li class="flex justify-between"><span>Minggu</span><span class="text-white">08:00 - 20:00</span></li>
-          </ul>
-        </div>
-        <div>
-          <h4 class="font-semibold mb-4 text-sm uppercase tracking-wider text-gold-400">Hubungi Kami</h4>
-          <ul class="space-y-3">
-            <li class="flex items-center gap-2 text-sm text-gray-400"><span
-                class="material-symbols-outlined text-base text-gold-400">location_on</span>Jl. Roti Artisan No. 12,
-              Jakarta</li>
-            <li class="flex items-center gap-2 text-sm text-gray-400"><span
-                class="material-symbols-outlined text-base text-gold-400">call</span>+62 812-3456-7890</li>
-            <li class="flex items-center gap-2 text-sm text-gray-400"><span
-                class="material-symbols-outlined text-base text-gold-400">mail</span>hello@rotinusantara.id</li>
-          </ul>
-          <div class="mt-6">
-            <div class="flex gap-2"><input type="email" placeholder="Email Anda"
-                class="newsletter-input flex-1 text-sm"><button class="btn-primary px-4 py-3 rounded-xl text-sm"><span
-                  class="material-symbols-outlined text-lg">send</span></button></div>
-          </div>
+        <div class="border-t border-gray-800/50 pt-8 text-center">
+          <p class="text-xs text-gray-500">
+            &copy; 2026 AzmiBakery. Semua hak dilindungi.
+          </p>
         </div>
       </div>
-      <div class="border-t border-gray-800/50 pt-8 text-center">
-        <p class="text-xs text-gray-500">&copy; 2026 RotiNusantara. Semua hak dilindungi.</p>
-      </div>
-    </div>
-  </footer>
+    </footer>
 
-  <!-- WHATSAPP FLOAT -->
-  <a href="https://wa.me/6281234567890?text=Halo%20saya%20ingin%20memesan%20roti" target="_blank" class="whatsapp-float"
-    aria-label="Chat WhatsApp">
-    <svg viewBox="0 0 24 24">
-      <path
-        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
-      <path
-        d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.61.61l4.458-1.495A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.319 0-4.476-.678-6.29-1.844l-.438-.282-3.22 1.08 1.08-3.22-.282-.438A9.956 9.956 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z" />
-    </svg>
-  </a>
+    <!-- WHATSAPP FLOAT -->
+    <a
+      href="https://wa.me/6285766554636?text=Halo%20saya%20ingin%20memesan%20roti"
+      target="_blank"
+      class="whatsapp-float"
+      aria-label="Chat WhatsApp"
+    >
+      <svg viewBox="0 0 24 24">
+        <path
+          d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"
+        />
+        <path
+          d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.61.61l4.458-1.495A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.319 0-4.476-.678-6.29-1.844l-.438-.282-3.22 1.08 1.08-3.22-.282-.438A9.956 9.956 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"
+        />
+      </svg>
+    </a>
 
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script src="script.js"></script>
-</body>
-
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
+  </body>
 </html>
