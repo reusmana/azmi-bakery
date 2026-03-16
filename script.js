@@ -56,7 +56,7 @@ function renderProducts(filter = "all") {
         <p class="text-gray-400 text-sm mb-4 leading-relaxed">${p.desc}</p>
         <div class="flex items-center justify-between">
           <span class="text-gold-400 font-bold text-lg">${p.price}</span>
-          <a href="https://wa.me/6281234567890?text=${encodeURIComponent("Halo, saya ingin memesan " + p.name)}" target="_blank"
+          <a href="https://wa.me/6285766554636?text=${encodeURIComponent("Halo, saya ingin memesan " + p.name)}" target="_blank"
              class="btn-primary px-5 py-2 rounded-full text-xs inline-flex items-center gap-1.5">
             <span class="material-symbols-outlined text-sm">shopping_bag</span> Pesan
           </a>

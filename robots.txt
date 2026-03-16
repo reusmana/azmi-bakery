@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://azmi-bakery.vercel.app/sitemap.xml
